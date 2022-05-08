@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import { ROUTES } from './utils/routes';
+import React from 'react'
 
 function App() {
+  React.useEffect(() => {
+    if (ROUTES.length > 1) {
+      // location.reload()
+    }
+    else if (ROUTES.length == 1 && window.location.pathname != '/login') {
+      window.location.href = '/login'
+    }
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+      <h1 className='bg-slate-800 text-white text-3xl font-heading font-bold p-3'>Admin Panel</h1>
+      <div>
+        <ul className='mb-4 flex gap-3 p-3 border-b border-gray-200'>
+          {ROUTES.map(route =>
+            <li>
+              <Link className='bg-slate-400 p-1 pr-6 pl-6 rounded text-white' to={route.path}>{route.name}</Link>
+            </li>
+          )}
+        </ul>
+
+        <div className='pl-4 pr-4'>
+          <Routes>
+            {ROUTES.map(route =>
+              <Route path={route.path} element={route.component} />
+            )}
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
