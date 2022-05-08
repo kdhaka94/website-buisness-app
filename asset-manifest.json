@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/starter-project/static/css/main.cd98bf4d.css",
-    "main.js": "/starter-project/static/js/main.a6a5d25e.js",
-    "static/js/787.f9560213.chunk.js": "/starter-project/static/js/787.f9560213.chunk.js",
-    "index.html": "/starter-project/index.html",
-    "main.cd98bf4d.css.map": "/starter-project/static/css/main.cd98bf4d.css.map",
-    "main.a6a5d25e.js.map": "/starter-project/static/js/main.a6a5d25e.js.map",
-    "787.f9560213.chunk.js.map": "/starter-project/static/js/787.f9560213.chunk.js.map"
+    "main.css": "/website-buisness-app/static/css/main.cd98bf4d.css",
+    "main.js": "/website-buisness-app/static/js/main.c8345e7e.js",
+    "static/js/787.f9560213.chunk.js": "/website-buisness-app/static/js/787.f9560213.chunk.js",
+    "index.html": "/website-buisness-app/index.html",
+    "main.cd98bf4d.css.map": "/website-buisness-app/static/css/main.cd98bf4d.css.map",
+    "main.c8345e7e.js.map": "/website-buisness-app/static/js/main.c8345e7e.js.map",
+    "787.f9560213.chunk.js.map": "/website-buisness-app/static/js/787.f9560213.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cd98bf4d.css",
-    "static/js/main.a6a5d25e.js"
+    "static/js/main.c8345e7e.js"
   ]
 }
