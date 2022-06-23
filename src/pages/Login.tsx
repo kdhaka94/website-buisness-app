@@ -24,7 +24,7 @@ export function Login() {
 
     if (data[TOKEN]) {
       localStorage.setItem(TOKEN, data[TOKEN]);
-      window.location.href = '/';
+      window.location.href = window.location.origin;
     }
   }
 

@@ -9,14 +9,14 @@ import { ROUTES } from './utils/routes';
 import React from 'react'
 
 function App() {
-  React.useEffect(() => {
-    if (ROUTES.length > 1) {
-      // location.reload()
-    }
-    else if (ROUTES.length == 1 && window.location.pathname != '/login') {
-      window.location.href = '/login'
-    }
-  }, [])
+  // React.useEffect(() => {
+  //   if (ROUTES.length > 1) {
+  //     // location.reload()
+  //   }
+  //   else if (ROUTES.length == 1 && window.location.pathname != '/login') {
+  //     window.location.href = window.location.origin + '/login'
+  //   }
+  // }, [])
   return (
 
     <Router>

@@ -12,7 +12,7 @@ export const ROUTES = [
     path: '/payment-info', name: "Payment Info", component: <PaymentInfo />, show: isLoggedIn
   },
   {
-    path: '/login', name: "Login", component: <Login />, show: !isLoggedIn
+    path: '/', name: "Login", component: <Login />, show: !isLoggedIn
   },
   {
     path: '/logout', name: "Logout", component: <Logout />, show: isLoggedIn
