@@ -1,12 +1,10 @@
-import './App.css';
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
+  BrowserRouter as Router, Link, Route, Routes
 } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
 import { ROUTES } from './utils/routes';
-import React from 'react'
 
 function App() {
   // React.useEffect(() => {
@@ -18,27 +16,29 @@ function App() {
   //   }
   // }, [])
   return (
-
-    <Router>
-      <h1 className='bg-slate-800 text-white text-3xl font-heading font-bold p-3'>Admin Panel</h1>
-      <div>
-        <ul className='mb-4 flex gap-3 p-3 border-b border-gray-200'>
-          {ROUTES.map(route =>
-            <li>
-              <Link className='bg-slate-400 p-1 pr-6 pl-6 rounded text-white' to={route.path}>{route.name}</Link>
-            </li>
-          )}
-        </ul>
-
-        <div className='pl-4 pr-4'>
-          <Routes>
+    <>
+      <Router>
+        <h1 className='bg-slate-800 text-white text-3xl font-heading font-bold p-3'>Admin Panel</h1>
+        <div>
+          <ul className='mb-4 flex gap-3 p-3 border-b border-gray-200'>
             {ROUTES.map(route =>
-              <Route path={route.path} element={route.component} />
+              <li>
+                <Link className='bg-slate-400 p-1 pr-6 pl-6 rounded text-white' to={route.path}>{route.name}</Link>
+              </li>
             )}
-          </Routes>
+          </ul>
+
+          <div className='pl-4 pr-4'>
+            <Routes>
+              {ROUTES.map(route =>
+                <Route path={route.path} element={route.component} />
+              )}
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+      <ToastContainer />
+    </>
   );
 }
 

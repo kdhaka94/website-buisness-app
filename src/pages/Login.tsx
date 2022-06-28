@@ -1,4 +1,5 @@
 import React from 'react'
+import { Loader } from '../components/loader';
 import Alert from '../components/ui/alert';
 import Button from '../components/ui/buttton';
 import Input from '../components/ui/input'
@@ -10,6 +11,8 @@ export function Login() {
     mobileNumber: '',
     password: ''
   });
+  const [loading, setLoading] = React.useState(false)
+
   const [errorMsg, setErrorMsg] = React.useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,18 +20,23 @@ export function Login() {
   }
 
   const handleLogin = async () => {
+    setLoading(true)
     const data = await request({ uri: '/auth/signin', body: creds });
     if (data.error) {
       setErrorMsg(data.message)
     }
 
+    setLoading(false)
     if (data[TOKEN]) {
       localStorage.setItem(TOKEN, data[TOKEN]);
       window.location.href = window.location.origin;
     }
   }
 
-  return (
+
+  return (<>
+    {loading && <Loader />}
+
     <div className='w-full h-full flex items-center justify-center'>
       <div className='flex-col items-center justify-center gap-2 w-1/3 border-2 p-5'>
         <h1 className='text-2xl font-semibold text-heading mb-3'>Login</h1>
@@ -47,6 +55,7 @@ export function Login() {
         ) : null}
       </div>
     </div>
+  </>
 
   )
 }

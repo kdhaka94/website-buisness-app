@@ -4,6 +4,7 @@ import { ColumnsType } from "rc-table/lib/interface";
 import { User } from "../utils/types";
 import { request } from "../utils/request";
 import Button from "../components/ui/buttton";
+import { Loader } from "../components/loader";
 
 interface IProps {
 
@@ -96,14 +97,19 @@ const columns = (refetch: any): ColumnsType<User> => ([
   },
 ])
 export const Home = () => {
+  const [loading, setLoading] = React.useState(false)
 
   const [data, setData] = React.useState<User[] | any[]>([])
   const [actions, setActions] = React.useState(0)
 
   React.useEffect(() => {
     (async () => {
+      setLoading(true)
+
       const res = await request({ uri: '/user/allUsers' });
       setData(res);
+      setLoading(false)
+
     })()
   }, [actions])
   const addActions = () => {
@@ -111,6 +117,8 @@ export const Home = () => {
   }
 
   return <>
+    {loading && <Loader />}
+
     <Table columns={columns(addActions)} data={data} />
   </>
 } 

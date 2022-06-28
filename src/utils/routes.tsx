@@ -1,4 +1,5 @@
 import { Home, Login, Logout } from "../pages";
+import CreateUser from "../pages/CreateUser";
 import PaymentInfo from "../pages/PaymentInfo";
 import { TOKEN } from "./constants";
 
@@ -10,6 +11,9 @@ export const ROUTES = [
   },
   {
     path: '/payment-info', name: "Payment Info", component: <PaymentInfo />, show: isLoggedIn
+  },
+  {
+    path: '/create-user', name: "Create User", component: <CreateUser />, show: isLoggedIn
   },
   {
     path: '/', name: "Login", component: <Login />, show: !isLoggedIn
